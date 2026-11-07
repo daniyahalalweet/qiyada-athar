@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>التقييم الذاتي — قيادة تصنع الأثر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Noto+Kufi+Arabic:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--g:#1f7a52;--g2:#2f9467;--dg:#10261f;--gs:#e4f2ec;--off:#faf8f2;--off2:#f2eee3;--line:#e3e8e3;--mut:#62736c;--red:#b3261e;--redbg:#fbeceb;--amb:#a06a00;--ambbg:#fdf3dc}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--off);color:var(--dg);font-family:'IBM Plex Sans Arabic',Tahoma,Arial,sans-serif;font-size:16px;line-height:1.65;-webkit-text-size-adjust:100%}
+.k{font-family:'Noto Kufi Arabic','IBM Plex Sans Arabic',Tahoma,sans-serif;font-weight:700}
+.wrap{max-width:680px;margin:0 auto;padding:0 16px 48px}
+header{background:var(--off2);border-bottom:4px solid var(--g)}
+header .in{max-width:680px;margin:0 auto;padding:26px 16px 20px}
+.school{font-size:13px;color:var(--mut)}
+h1{margin:6px 0 4px;color:var(--g);font-size:25px;line-height:1.45}
+.lead{color:#3d5a4f;font-size:15px;margin:0}
+.bar{position:sticky;top:0;z-index:5;background:var(--off);padding:12px 0 10px;border-bottom:1px solid var(--line)}
+.bar .t{display:flex;justify-content:space-between;font-size:13px;color:var(--mut);margin-bottom:6px}
+.bar .t b{color:var(--g)}
+.track{height:8px;background:var(--gs);border-radius:8px;overflow:hidden}
+.fill{height:100%;width:0;background:var(--g);border-radius:8px;transition:width .25s}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:14px}
+.sec{display:flex;align-items:center;gap:10px;margin:0 0 4px}
+.sec i{flex:0 0 30px;height:30px;border-radius:50%;background:var(--g);color:#fff;font-style:normal;display:flex;align-items:center;justify-content:center;font-size:14px}
+.sec h2{margin:0;font-size:18px;color:var(--g)}
+.sec small{color:var(--mut);font-size:13px;font-weight:400;margin-inline-start:auto}
+label{display:block;font-size:14px;font-weight:600;margin:12px 0 5px}
+input[type=text],textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 12px;font:inherit;background:var(--off);color:var(--dg)}
+input:focus,textarea:focus{outline:2px solid var(--g2);outline-offset:0;background:#fff}
+input[readonly],textarea[readonly]{background:#f1f0eb;color:#4a5a54}
+textarea{min-height:70px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+@media(max-width:540px){.two{grid-template-columns:1fr}}
+.q{padding:14px 0 4px;border-top:1px solid var(--line)}
+.q:first-of-type{border-top:0}
+.q p{margin:0 0 10px;font-size:16px;font-weight:500}
+.q.miss p{color:var(--red)}
+.q.miss .opts{outline:2px solid #f0b8b4;border-radius:12px}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.opts button{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:11px 4px;font:inherit;font-weight:600;color:var(--dg);cursor:pointer;min-height:48px}
+.opts button:hover{border-color:var(--g2)}
+.opts button.on{background:var(--g);border-color:var(--g);color:#fff}
+.mine{font-size:13px;color:var(--mut);margin:-4px 0 8px}
+.mine b{color:var(--g)}
+.res{text-align:center}
+.big{font-size:40px;color:var(--g);line-height:1.2;margin:6px 0 0}
+.verdict{display:inline-block;margin-top:8px;padding:6px 16px;border-radius:20px;font-weight:600;font-size:15px}
+.verdict.ok{background:var(--gs);color:var(--g)}
+.verdict.no{background:var(--ambbg);color:var(--amb)}
+.prs{margin-top:16px;text-align:right}
+.pr{display:grid;grid-template-columns:84px 1fr 44px;gap:10px;align-items:center;margin:8px 0;font-size:14px}
+.pr .tr{height:10px;background:var(--gs);border-radius:10px;overflow:hidden}
+.pr .tr span{display:block;height:100%;background:var(--g);border-radius:10px}
+.pr.low .tr span{background:#d08a00}
+.pr b{text-align:left;font-weight:600}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.cmp div{background:var(--off);border-radius:12px;padding:10px}
+.cmp b{display:block;font-size:24px;color:var(--g)}
+.hint{font-size:13px;color:var(--mut);margin-top:8px}
+.actions{display:grid;gap:10px;margin-top:16px}
+.btn{border:0;border-radius:12px;padding:15px;font:inherit;font-weight:600;font-size:17px;cursor:pointer;background:var(--g);color:#fff;width:100%}
+.btn.alt{background:#fff;color:var(--g);border:2px solid var(--g)}
+.msg{margin-top:12px;font-size:14px;padding:10px 12px;border-radius:10px;display:none}
+.msg.show{display:block}
+.msg.err{background:var(--redbg);color:var(--red)}
+.msg.ok{background:var(--gs);color:var(--g)}
+.foot{text-align:center;color:var(--mut);font-size:12.5px;margin-top:28px}
+.foot a{color:var(--g);font-weight:600;cursor:pointer;text-decoration:underline}
+#adminBox{display:none}
+select{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 12px;font:inherit;background:var(--off);color:var(--dg);appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,#1f7a52 50%),linear-gradient(135deg,#1f7a52 50%,transparent 50%);background-position:16px 50%,22px 50%;background-size:6px 6px;background-repeat:no-repeat}
+select:disabled{background-color:#f1f0eb;color:#4a5a54;opacity:1}
+a.btn{display:block;text-align:center;text-decoration:none}
+.share{margin-top:12px;display:none}
+.share.show{display:block}
+.share textarea{min-height:110px;font-size:13px;direction:rtl}
+#view{display:none;position:fixed;inset:0;z-index:50;background:#e9e6dc;overflow:auto;padding:16px}
+#view.show{display:block}
+#view .tools{max-width:820px;margin:0 auto 12px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#view .tip{max-width:820px;margin:0 auto 12px;font-size:13px;color:var(--mut);text-align:center}
+#report{max-width:820px;margin:0 auto;background:#fff;padding:28px 30px;border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,.08);font-size:14px}
+.rh{display:flex;justify-content:space-between;font-size:12px;border-bottom:2px solid #1f7a52;padding-bottom:6px}
+.rt{text-align:center;color:#1f7a52;font-size:20px;margin:12px 0 0}
+.rs{text-align:center;color:#62736c;font-size:13px;margin-bottom:12px}
+#report table{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed}
+#report th,#report td{border:1px solid #a9cfa0;padding:6px 7px;vertical-align:middle}
+#report th{background:#1f7a52;color:#fff;font-weight:600}
+#report td.c{text-align:center}
+#report td.l{background:#f2eee3;font-weight:600}
+#report td.p{background:#f2eee3;color:#1f7a52;font-weight:600;text-align:center}
+.gap{height:10px}
+.rr{margin-top:10px;font-weight:600}
+.rb{border:1px solid #a9cfa0;border-radius:5px;padding:7px 9px;margin-top:8px;min-height:36px}
+.rb b{color:#1f7a52}
+.sig{display:flex;justify-content:space-between;margin-top:26px}
+@media(max-width:600px){#report{padding:16px 10px;font-size:12px}#report table{font-size:11px}#report th,#report td{padding:4px 3px}#report th{font-size:9.5px}#report td.p{font-size:10px}.rh{font-size:10px}}
+
+@page{size:A4;margin:13mm}
+@media print{
+  html,body{background:#fff}
+  header,.wrap,#view .tools,#view .tip{display:none!important}
+  #view{display:block!important;position:static;background:#fff;padding:0;overflow:visible}
+  #report{box-shadow:none;padding:0;max-width:none;font-size:11pt}
+  #report table{font-size:10.5pt}
+  .rh{font-size:9.5pt}.rt{font-size:16pt}.rs{font-size:10pt}
+  #report th{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #report td.l,#report td.p{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<header><div class="in">
+  <div class="school">المتوسطة والثانوية الأولى بالروضة - مسارات · 1448هـ</div>
+  <h1 class="k" id="title">التقييم الذاتي للممارسات القيادية</h1>
+  <p class="lead" id="lead">برنامج «قيادة تصنع الأثر». ثماني عبارات، تحتاج دقيقتين تقريبًا.</p>
+</div></header>
+
+<div class="wrap">
+  <div class="bar"><div class="t"><span id="barLabel">التقدم</span><b id="barNum">0 من 8</b></div><div class="track"><div class="fill" id="barFill"></div></div></div>
+
+  <div class="card" id="adminBox">
+    <div class="sec"><i>✓</i><h2>فتح تقييم رئيسة</h2></div>
+    <label for="paste">الصقي الرابط أو الرسالة التي وصلتك</label>
+    <textarea id="paste"></textarea>
+    <div class="actions"><button class="btn" id="openBtn">فتح التقييم</button></div>
+  </div>
+
+  <div class="card">
+    <div class="sec"><i>١</i><h2>بياناتي</h2></div>
+    <div class="two">
+      <div><label for="name">الاسم</label><input type="text" id="name" autocomplete="name"></div>
+      <div><label for="team">الفريق أو اللجنة</label><select id="team"><option value="">اختاري…</option><option>لجنة التحصيل الدراسي</option><option>منسقة التحصيل الدراسي</option><option>وكيلة الشؤون المدرسية</option><option>وكيلة الشؤون التعليمية</option><option>اللجنة الإدارية</option><option>لجنة التوجيه الطلابي</option><option>النشاط الطلابي</option><option>التطوير المهني</option><option>الموهوبات</option><option>التحول الرقمي</option><option>الأمن والسلامة</option><option>لجنة الشراكة المجتمعية</option><option>قائدة تخصص اللغة العربية</option><option>قائدة تخصص الرياضيات</option><option>قائدة تخصص العلوم</option><option value="__other">أخرى</option></select><input type="text" id="teamOther" placeholder="اكتبي اسم الفريق أو اللجنة" style="display:none;margin-top:8px"></div>
+    </div>
+  </div>
+
+  <div id="qs"></div>
+
+  <div class="card res" id="resCard">
+    <div class="sec"><i id="resNum">٦</i><h2 id="resTitle">نتيجتي</h2></div>
+    <div id="resBody"><div class="hint">تظهر النتيجة بعد الإجابة عن العبارات الثماني.</div></div>
+  </div>
+
+  <div class="card" id="noteCard">
+    <label for="need" id="needLabel" style="margin-top:0">ما الذي تحتاجين دعمًا فيه؟ (اختياري)</label>
+    <textarea id="need"></textarea>
+    <div id="noteWrap" style="display:none"><label for="note">ملاحظة المديرة</label><textarea id="note"></textarea></div>
+  </div>
+
+  <div class="actions" id="acts"></div>
+  <div class="msg" id="msg"></div>
+  <div class="share" id="shareBox">
+    <label for="shareTxt">إن لم يُفتح البريد: انسخي الرسالة وأرسليها إلى بريد المديرة <span dir="ltr">Sch48509.1@gmail.com</span></label>
+    <textarea id="shareTxt" readonly></textarea>
+    <div class="actions"><button class="btn alt" id="bCopy" type="button">نسخ الرسالة</button></div>
+  </div>
+
+  <div class="foot">البيانات لا تُرفع إلى أي خادم.<br><a id="adminLink">للمديرة: فتح تقييم وصلني</a></div>
+</div>
+
+<div id="view">
+  <div class="tools"><button class="btn" id="vPrint" type="button">طباعة أو حفظ PDF</button><button class="btn alt" id="vBack" type="button">رجوع</button></div>
+  <div class="tip">إن لم تظهر نافذة الطباعة: افتحي قائمة المتصفح ثم اختاري «مشاركة» ← «طباعة»، أو «حفظ بصيغة PDF».</div>
+  <div id="report"></div>
+</div>
+
+<script>
+(function(){
+  // بريد مديرة المدرسة الذي تصله التقييمات
+  var PRINCIPAL_EMAIL = 'Sch48509.1@gmail.com';
+
+  var P = [
+    ['التخطيط', ['أُعدّ خطة شهرية لفريقي من بطاقة المتابعة الفردية.', 'أحدد لكل مهمة موعدًا ومخرجًا واضحًا.']],
+    ['التفويض', ['أوزع المهام على عضوات الفريق بالأسماء، ولا أنفذها وحدي.', 'أتأكد أن كل عضوة تعرف مهمتها وموعد تسليمها.']],
+    ['المتابعة', ['أحدّث حالة الإجراءات في البطاقة كل شهر.', 'أعالج ما لم يتم بخطوة وموعد جديدين.']],
+    ['التوثيق', ['أرفع شواهد الفريق في مجلده في موعدها.', 'أكتب ملخصًا لما أنجزه الفريق وأثره.']]
+  ];
+  var O = [['دائمًا', 2], ['أحيانًا', 1], ['نادرًا', 0]];
+  var LBL = {2: 'دائمًا', 1: 'أحيانًا', 0: 'نادرًا'};
+  var N = 8, MAX = 16, PASS = 80, KEY = 'qta-sa-v2', AR = '٠١٢٣٤٥٦٧٨٩';
+  var ar = function(n){ return String(n).replace(/\d/g, function(d){ return AR[d]; }); };
+  var S = {mode: 'leader', self: Array(N).fill(null), post: Array(N).fill(null)};
+  var $ = function(id){ return document.getElementById(id); };
+  var esc = function(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
+  var pr = function(){ return S.mode === 'principal'; };
+  var col = function(){ return pr() ? S.post : S.self; };
+
+  function stats(a){
+    var t = 0, c = 0, per = [];
+    P.forEach(function(g, gi){ var s = 0; for (var k = 0; k < 2; k++){ var v = a[gi * 2 + k]; if (v != null){ s += v; t += v; c++; } } per.push(Math.round(s / 4 * 100)); });
+    return {t: t, c: c, pct: Math.round(t / MAX * 100), per: per};
+  }
+
+  function render(){
+    var h = '';
+    P.forEach(function(g, gi){
+      h += '<div class="card"><div class="sec"><i>' + ar(gi + 2) + '</i><h2>' + g[0] + '</h2></div>';
+      g[1].forEach(function(t, k){
+        var i = gi * 2 + k, c = col();
+        h += '<div class="q" id="q' + i + '"><p>' + t + '</p>';
+        if (pr()) h += '<div class="mine">تقييمها الذاتي: <b>' + (S.self[i] == null ? '—' : LBL[S.self[i]]) + '</b></div>';
+        h += '<div class="opts">' + O.map(function(o){ return '<button type="button" data-i="' + i + '" data-v="' + o[1] + '" class="' + (c[i] === o[1] ? 'on' : '') + '">' + o[0] + '</button>'; }).join('') + '</div></div>';
+      });
+      h += '</div>';
+    });
+    $('qs').innerHTML = h;
+    $('title').textContent = pr() ? 'الملاحظة البعدية للممارسات القيادية' : 'التقييم الذاتي للممارسات القيادية';
+    $('lead').textContent = pr() ? 'برنامج «قيادة تصنع الأثر». راجعي شواهد الفريق، واختاري لكل عبارة. تقييم الرئيسة ظاهر تحت كل عبارة.' : 'برنامج «قيادة تصنع الأثر». ثماني عبارات، تحتاج دقيقتين تقريبًا.';
+    $('name').readOnly = $('teamOther').readOnly = $('need').readOnly = pr(); $('team').disabled = pr();
+    $('needLabel').textContent = pr() ? 'ما تحتاج الرئيسة دعمًا فيه' : 'ما الذي تحتاجين دعمًا فيه؟ (اختياري)';
+    $('noteWrap').style.display = pr() ? '' : 'none';
+    $('adminBox').style.display = 'none';
+    $('resTitle').textContent = pr() ? 'النتيجة' : 'نتيجتي';
+    $('acts').innerHTML = pr()
+      ? '<button class="btn" id="bPrint">طباعة التقرير النهائي أو حفظه PDF</button><button class="btn alt" id="bNew">تقييم جديد</button>'
+      : '<a class="btn" id="bSend" href="#">إرسال للمديرة عبر البريد</a><button class="btn alt" id="bPrint" type="button">طباعة التقرير أو حفظه PDF</button>';
+    if ($('bSend')) $('bSend').onclick = send;
+    $('bPrint').onclick = function(){ if (ok(true)) showReport(); };
+    $('shareBox').className = 'share';
+    if ($('bNew')) $('bNew').onclick = reset;
+    update();
+  }
+
+  function update(){
+    var a = col(), s = stats(a);
+    $('barNum').textContent = s.c + ' من 8'; $('barFill').style.width = (s.c / N * 100) + '%';
+    $('barLabel').textContent = pr() ? 'الملاحظة البعدية' : 'التقدم';
+    if (s.c === N && /err/.test($('msg').className)) $('msg').className = 'msg';
+    if (s.c < N){ $('resBody').innerHTML = '<div class="hint">تظهر النتيجة بعد الإجابة عن العبارات الثماني.</div>'; return; }
+    var low = Math.min.apply(null, s.per), h = '';
+    if (pr()){
+      var q = stats(S.self), good = s.pct >= PASS;
+      h += '<div class="cmp"><div>التقييم الذاتي<b>' + q.pct + '%</b></div><div>الملاحظة البعدية<b>' + s.pct + '%</b></div></div>';
+      h += '<div class="verdict ' + (good ? 'ok' : 'no') + '">' + (good ? 'مطبقة بفاعلية' : 'تحتاج دعمًا') + '</div>';
+    } else {
+      h += '<div class="big k">' + s.pct + '%</div><div class="hint" style="margin-top:2px">' + s.t + ' من ' + MAX + '</div>';
+    }
+    h += '<div class="prs">' + P.map(function(g, gi){ var v = s.per[gi]; return '<div class="pr' + (v === low && low < 100 ? ' low' : '') + '"><span>' + g[0] + '</span><div class="tr"><span style="width:' + v + '%"></span></div><b>' + v + '%</b></div>'; }).join('') + '</div>';
+    if (low < 100){ var names = P.filter(function(g, gi){ return s.per[gi] === low; }).map(function(g){ return g[0]; }).join(' و'); h += '<div class="hint">الممارسة الأقل: ' + names + '.</div>'; }
+    $('resBody').innerHTML = h;
+  }
+
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('.opts button'); if (!b) return;
+    var i = +b.dataset.i, v = +b.dataset.v; col()[i] = v;
+    b.parentNode.querySelectorAll('button').forEach(function(x){ x.classList.toggle('on', +x.dataset.v === v); });
+    $('q' + i).classList.remove('miss'); update(); save();
+  });
+  ['name', 'need', 'note'].forEach(function(id){ $(id).addEventListener('input', save); });
+
+  function teamVal(){ return $('team').value === '__other' ? $('teamOther').value.trim() : $('team').value; }
+  function setTeam(t){
+    t = t || ''; var sel = $('team'), found = false;
+    for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === t || sel.options[i].text === t) found = true;
+    if (!t){ sel.value = ''; $('teamOther').value = ''; }
+    else if (found){ sel.value = t; $('teamOther').value = ''; }
+    else { sel.value = '__other'; $('teamOther').value = t; }
+    $('teamOther').style.display = sel.value === '__other' ? '' : 'none';
+  }
+  $('team').addEventListener('change', function(){ $('teamOther').style.display = this.value === '__other' ? '' : 'none'; if (this.value === '__other') $('teamOther').focus(); save(); });
+  $('teamOther').addEventListener('input', save);
+  function data(){ return {name: $('name').value.trim(), team: teamVal(), need: $('need').value.trim(), note: $('note').value.trim()}; }
+  function fill(D){ D = D || {}; ['name', 'need', 'note'].forEach(function(k){ $(k).value = D[k] || ''; }); setTeam(D.team); }
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify({S: S, D: data(), at: Date.now()})); } catch (e) {} }
+  function msg(t, kind){ var m = $('msg'); m.textContent = t; m.className = 'msg show ' + (kind || 'ok'); }
+  function ok(needName){
+    var a = col(), miss = [];
+    document.querySelectorAll('.q').forEach(function(x){ x.classList.remove('miss'); });
+    a.forEach(function(v, i){ if (v == null){ miss.push(i); $('q' + i).classList.add('miss'); } });
+    if (needName && !pr() && !$('name').value.trim()){ msg('اكتبي اسمك أولًا.', 'err'); $('name').focus(); return false; }
+    if (miss.length){ msg('بقيت عبارات دون اختيار، وهي ظاهرة باللون الأحمر.', 'err'); $('q' + miss[0]).scrollIntoView({behavior: 'smooth', block: 'center'}); return false; }
+    $('msg').className = 'msg'; return true;
+  }
+
+  function b64e(s){ return btoa(unescape(encodeURIComponent(s))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); }
+  function b64d(s){ s = s.replace(/-/g, '+').replace(/_/g, '/'); while (s.length % 4) s += '='; return decodeURIComponent(escape(atob(s))); }
+  function code(){ var D = data(); return b64e(JSON.stringify({v: 2, n: D.name, t: D.team, x: D.need, s: S.self.join('')})); }
+  function parse(raw){
+    raw = (raw || '').trim();
+    var m = raw.match(/d=([A-Za-z0-9_-]{20,})/) || raw.match(/([A-Za-z0-9_-]{40,})/);
+    if (!m) throw 0;
+    var o = JSON.parse(b64d(m[1])); if (!o || o.v !== 2 || !/^[012]{8}$/.test(o.s)) throw 0; return o;
+  }
+  function open(raw){
+    var o = parse(raw);
+    S = {mode: 'principal', self: o.s.split('').map(Number), post: Array(N).fill(null)};
+    fill({name: o.n, team: o.t, need: o.x}); render(); save(); window.scrollTo(0, 0);
+    msg('فُتح تقييم ' + (o.n || 'الرئيسة') + '. اختاري لكل عبارة ثم اطبعي التقرير النهائي.');
+  }
+  function shareText(){
+    var c = code(), D = data(), s = stats(S.self);
+    var L = /^https?:/.test(location.protocol) ? location.href.split('#')[0] + '#d=' + c : '';
+    return 'التقييم الذاتي — قيادة تصنع الأثر\n' + D.name + (D.team ? ' — ' + D.team : '') + '\nالنتيجة: ' + s.pct + '%\n\n' + (L ? L : 'رمز التقييم: ' + c);
+  }
+  function send(e){
+    if (!ok(true)){ e.preventDefault(); return; }
+    var t = shareText();
+    var D = data();
+    this.href = 'mailto:' + PRINCIPAL_EMAIL + '?subject=' + encodeURIComponent('التقييم الذاتي — قيادة تصنع الأثر — ' + D.name) + '&body=' + encodeURIComponent(t);
+    $('shareTxt').value = t; $('shareBox').className = 'share show';
+    msg('يُفتح تطبيق البريد برسالة جاهزة إلى المديرة: اضغطي إرسال.');
+  }
+  $('bCopy').onclick = function(){
+    var ta = $('shareTxt'), done = function(){ msg('نُسخت الرسالة. الصقيها في محادثة المديرة.'); };
+    try { if (navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(ta.value).then(done, function(){ ta.select(); document.execCommand('copy'); done(); }); return; } } catch (x) {}
+    ta.select(); try { document.execCommand('copy'); done(); } catch (x){ msg('حددي نص الرسالة وانسخيه يدويًا.', 'err'); }
+  };
+  function showReport(){
+    report(); $('view').className = 'show'; $('view').scrollTop = 0;
+    try { document.body.style.overflow = 'hidden'; } catch (x) {}
+  }
+  $('vBack').onclick = function(){ $('view').className = ''; document.body.style.overflow = ''; };
+  $('vPrint').onclick = function(){ try { window.print(); } catch (x) {} };
+  function reset(){
+    S = {mode: 'leader', self: Array(N).fill(null), post: Array(N).fill(null)}; fill();
+    try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
+    render(); save(); $('msg').className = 'msg'; window.scrollTo(0, 0);
+  }
+  $('adminLink').onclick = function(){ var b = $('adminBox'); b.style.display = 'block'; b.scrollIntoView({behavior: 'smooth'}); $('paste').focus(); };
+  $('openBtn').onclick = function(){ try { open($('paste').value); } catch (e){ msg('لم يُتعرف على الرسالة. الصقيها كاملة كما وصلتك.', 'err'); } };
+
+  function report(){
+    var D = data(), s = stats(S.self), p = stats(S.post), P2 = pr(), rows = '';
+    P.forEach(function(g, gi){ g[1].forEach(function(t, k){ var i = gi * 2 + k;
+      rows += '<tr>' + (k === 0 ? '<td class="p" rowspan="2">' + g[0] + '</td>' : '') + '<td class="c">' + (i + 1) + '</td><td>' + t + '</td><td class="c">' + (S.self[i] == null ? '' : LBL[S.self[i]]) + '</td><td class="c">' + (P2 && S.post[i] != null ? LBL[S.post[i]] : '') + '</td></tr>'; }); });
+    var verdict = P2 ? (p.pct >= PASS ? '☑ مطبقة بفاعلية' : '☑ تحتاج دعمًا') + ' (' + p.pct + '%)' : '☐ مطبقة بفاعلية (80% فأكثر)     ☐ تحتاج دعمًا';
+    $('report').innerHTML =
+      '<div class="rh"><div><b>المملكة العربية السعودية</b><br>وزارة التعليم<br>الإدارة العامة للتعليم بمنطقة القصيم</div><div style="text-align:left">المتوسطة والثانوية الأولى بالروضة - مسارات<br>العام الدراسي 1448هـ</div></div>' +
+      '<div class="rt k">تقرير التقييم الذاتي للممارسات القيادية</div><div class="rs">برنامج «قيادة تصنع الأثر» 1448هـ</div>' +
+      '<table><tr><td class="l" style="width:18%">الاسم</td><td>' + esc(D.name) + '</td><td class="l" style="width:18%">الفريق أو اللجنة</td><td>' + esc(D.team) + '</td></tr></table><div class="gap"></div>' +
+      '<table><colgroup><col style="width:13%"><col style="width:5%"><col style="width:52%"><col style="width:15%"><col style="width:15%"></colgroup>' +
+      '<tr><th>الممارسة</th><th>م</th><th>العبارة</th><th>التقييم الذاتي</th><th>الملاحظة البعدية</th></tr>' + rows +
+      '<tr><td colspan="3" class="l">النسبة (دائمًا = 2، أحيانًا = 1، نادرًا = 0، من 16)</td><td class="c"><b>' + s.pct + '%</b></td><td class="c"><b>' + (P2 && p.c === N ? p.pct + '%' : '') + '</b></td></tr></table>' +
+      '<div class="rr">النتيجة (من الملاحظة البعدية): ' + verdict + '</div>' +
+      '<div class="rb"><b>ما تحتاج الرئيسة دعمًا فيه: </b>' + esc(D.need) + '</div>' +
+      '<div class="rb"><b>ملاحظة المديرة: </b>' + (P2 ? esc(D.note) : '') + '</div>' +
+      '<div class="sig"><div>توقيع الرئيسة: ..............................</div><div>توقيع مديرة المدرسة: ..............................</div></div>';
+  }
+  window.addEventListener('beforeprint', report);
+
+  var started = false;
+  if (/d=/.test(location.hash)){ try { open(location.hash); started = true; } catch (e) {} }
+  if (!started){
+    try { var st = JSON.parse(localStorage.getItem(KEY) || 'null'); if (st && st.S && st.S.self && st.S.self.length === N && st.S.mode === 'leader'){ S = st.S; fill(st.D); } } catch (e) {}
+    render();
+  }
+})();
+</script>
+</body>
+</html>
